@@ -1,0 +1,100 @@
+:root{
+  --bg:#0f172a;        /* slate-900 */
+  --panel:#111827;     /* gray-900 */
+  --text:#e5e7eb;      /* gray-200 */
+  --muted:#9ca3af;     /* gray-400 */
+  --accent:#22c55e;    /* green-500 */
+  --accent-2:#60a5fa;  /* blue-400 */
+  --danger:#ef4444;    /* red-500 */
+  --btn:#1f2937;       /* gray-800 */
+  --btn-hover:#374151; /* gray-700 */
+  --shadow: 0 12px 30px rgba(0,0,0,.35);
+}
+:root.light{
+  --bg:#f3f4f6;
+  --panel:#ffffff;
+  --text:#111827;
+  --muted:#6b7280;
+  --accent:#16a34a;
+  --accent-2:#2563eb;
+  --danger:#dc2626;
+  --btn:#f3f4f6;
+  --btn-hover:#e5e7eb;
+  --shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  background: radial-gradient(1200px 900px at 70% -10%, rgba(96,165,250,.15), transparent 60%),
+              radial-gradient(900px 700px at -10% 110%, rgba(34,197,94,.12), transparent 60%),
+              var(--bg);
+  color:var(--text);
+  display:flex; align-items:center; justify-content:center; padding:24px;
+}
+.wrap{width:100%; max-width:400px}
+.topbar{
+  display:flex; align-items:center; justify-content:space-between;
+  margin-bottom:10px;
+}
+.brand{font-weight:700; letter-spacing:.3px}
+.theme{
+  display:inline-flex; align-items:center; gap:8px; font-size:14px; color:var(--muted)
+}
+.toggle{
+  appearance:none; width:44px; height:24px; border-radius:999px; position:relative;
+  background:var(--btn); box-shadow: inset 0 0 0 2px rgba(0,0,0,.15);
+  cursor:pointer; transition:.25s;
+}
+.toggle::after{
+  content:""; position:absolute; top:3px; left:3px; width:18px; height:18px; border-radius:50%;
+  background:var(--accent-2); transition:.25s;
+  box-shadow:0 2px 6px rgba(0,0,0,.25);
+}
+.toggle:checked{ background:var(--btn-hover) }
+.toggle:checked::after{ left:23px; background:var(--accent) }
+
+.calc{
+  background:var(--panel); border-radius:16px; box-shadow:var(--shadow); padding:16px;
+}
+.display{
+  background:transparent; border:none; width:100%; text-align:right; color:var(--text);
+  padding:8px 12px; font-size:40px; line-height:1.2; outline:none;
+}
+.mini{
+  text-align:right; color:var(--muted); font-size:14px; height:20px; margin:4px 8px 8px;
+  overflow:hidden; white-space:nowrap; text-overflow:ellipsis;
+}
+.grid{
+  display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; margin-top:8px;
+}
+button{
+  border:none; border-radius:12px; padding:16px; font-size:18px; font-weight:600;
+  background:var(--btn); color:var(--text); cursor:pointer; transition:.15s transform,.2s background;
+  outline: none;
+}
+button:focus-visible{ outline:2px solid var(--accent-2); outline-offset:2px }
+button:hover{ background:var(--btn-hover) }
+.op{ color:var(--accent-2) }
+.accent{ background:linear-gradient(180deg, var(--accent), #16a34a); color:white }
+.accent:hover{ filter:brightness(.95) }
+.danger{ color:var(--danger) }
+.span-2{ grid-column: span 2 }
+.pill{ border-radius:999px }
+
+/* Responsive */
+@media (max-width: 360px){
+  .display{font-size:32px}
+  button{padding:14px; font-size:16px}
+}
+
+/* Utility to show active keypress */
+.pressed{ transform: translateY(1px); }
+
+.hint{
+  color:var(--muted);
+  font-size:12px;
+  text-align:center;
+  margin-top:10px;
+}

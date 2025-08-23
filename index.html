@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Riya’s Calculator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="wrap" role="application" aria-label="Calculator">
+    <div class="topbar">
+      <div class="brand">Riya’s Calculator</div>
+      <label class="theme">
+        <span id="themeLabel">Dark</span>
+        <input id="themeToggle" type="checkbox" class="toggle" aria-label="Toggle theme" />
+      </label>
+    </div>
+
+    <div class="calc">
+      <div class="mini" id="history" aria-live="polite"></div>
+      <input id="display" class="display" type="text" inputmode="decimal" aria-label="Current value" value="0" readonly />
+      <div class="grid" role="group" aria-label="Keypad">
+        <button class="danger pill" data-action="clear" aria-label="All Clear (AC)">AC</button>
+        <button class="pill" data-action="backspace" aria-label="Backspace">⌫</button>
+        <button class="op pill" data-action="percent" aria-label="Percent">%</button>
+        <button class="op pill" data-val="/" aria-label="Divide">÷</button>
+
+        <button data-val="7">7</button>
+        <button data-val="8">8</button>
+        <button data-val="9">9</button>
+        <button class="op" data-val="*" aria-label="Multiply">×</button>
+
+        <button data-val="4">4</button>
+        <button data-val="5">5</button>
+        <button data-val="6">6</button>
+        <button class="op" data-val="-" aria-label="Minus">−</button>
+
+        <button data-val="1">1</button>
+        <button data-val="2">2</button>
+        <button data-val="3">3</button>
+        <button class="op" data-val="+" aria-label="Plus">+</button>
+
+        <button class="span-2" data-val="0">0</button>
+        <button data-val=".">.</button>
+        <button class="accent" data-action="equals" aria-label="Equals">=</button>
+      </div>
+    </div>
+    <p class="hint">Tip: Keyboard se bhi chalega — numbers, + − × ÷, %, Enter (=), Backspace, Esc (AC).</p>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
